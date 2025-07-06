@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrainPalette - AI Rice Classifier</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+
+    header {
+      background-color: #0f172a;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      color: #38fcae;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      color: #22c55e;
+      font-size: 42px;
+      font-weight: bold;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 18px;
+      max-width: 800px;
+      margin: 20px auto 40px;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #cbd5e1;
+      font-size: 16px;
+    }
+
+    .feature span {
+      font-size: 20px;
+    }
+
+    .btn-upload {
+      background: linear-gradient(to right, #06d6a0, #00b894);
+      color: white;
+      padding: 14px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    .upload-form {
+      background-color: #1e293b;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+
+    .upload-form input[type="file"] {
+      padding: 12px;
+      border-radius: 6px;
+      width: 100%;
+      margin-bottom: 10px;
+      background-color: #0f172a;
+      color: #f8fafc;
+      border: 1px solid #22c55e;
+    }
+
+    .upload-form input[type="submit"] {
+      background: linear-gradient(to right, #06d6a0, #00b894);
+      color: white;
+      font-size: 16px;
+      padding: 14px 25px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background-color: #1e293b;
+      padding: 25px;
+      border-radius: 12px;
+      width: 250px;
+      color: #cbd5e1;
+    }
+
+    .card h3 {
+      color: #a78bfa;
+      margin-top: 10px;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .step {
+      background-color: #1e293b;
+      padding: 25px;
+      border-radius: 12px;
+      width: 200px;
+    }
+
+    .step h4 {
+      margin: 10px 0;
+      color: #22c55e;
+    }
+
+    .step-number {
+      background-color: #22c55e;
+      color: #0f172a;
+      font-weight: bold;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>🌾 GrainPalette</h1>
+    <div style="font-size: 24px;">☰</div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="section hero">
+    <h2>AI-Powered Rice Classification</h2>
+    <p>Upload an image of rice grains and let our AI-powered image analysis system identify the type instantly. Perfect for farmers, researchers, and agriculture enthusiasts.</p>
+    <div class="features">
+      <div class="feature"><span>🧠</span> Deep Learning Technology</div>
+      <div class="feature"><span>👁️</span> Image Analysis Technology</div>
+      <div class="feature"><span>⚡</span> Instant Results</div>
+    </div>
+    <button class="btn-upload">⬆ Upload Rice Image</button>
+  </section>
+  <!-- Upload Section -->
+  <section class="section">
+    <div class="upload-form">
+      <h2>Select Image</h2>
+      <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required><br>
+        <small>Supported formats: PNG, JPG, JPEG, GIF (Max 16MB)</small><br><br>
+        <input type="submit" value="🔍 Classify Rice Type">
+      </form>
+    </div>
+  </section>
+
+  <!-- Target Users Section -->
+  <section class="section">
+    <div class="cards">
+      <div class="card">
+        <div style="font-size: 40px;">🚜</div>
+        <h3>For Farmers</h3>
+        <p>Plan your crop cultivation strategies effectively by identifying rice varieties and adjusting agricultural practices accordingly.</p>
+      </div>
+      <div class="card">
+        <div style="font-size: 40px;">🔬</div>
+        <h3>For Researchers</h3>
+        <p>Assist in research studies, variety testing, and data collection for agricultural extension programs and scientific research.</p>
+      </div>
+      <div class="card">
+        <div style="font-size: 40px;">🎓</div>
+        <h3>For Education</h3>
+        <p>Learn about different rice varieties and understand their unique characteristics for educational and home use.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section">
+    <h2>How It Works</h2>
+    <p>Our AI-powered classification process in simple steps</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Upload Image</h4>
+        <p>Select and upload a clear image of rice grains</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>AI Processing</h4>
+        <p>Our AI system analyzes the image features and characteristics</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Classification</h4>
+        <p>The AI identifies the rice type with confidence scores</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h4>Results</h4>
+        <p>Get detailed results and recommendations</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
