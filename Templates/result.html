@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Classification Results - GrainPalette</title>
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #e2e8f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #0f172a;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      color: #38fcae;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    .section {
+      background-color: #1e293b;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    h2, h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+    img {
+      max-width: 300px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+    .confidence-bar {
+      background: #334155;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 20px;
+      margin-top: 10px;
+    }
+    .confidence-bar-inner {
+      background: #4ade80;
+      height: 100%;
+      text-align: center;
+      line-height: 20px;
+      color: #0f172a;
+      font-weight: bold;
+    }
+    .prediction-item {
+      margin: 10px 0;
+    }
+    .bar {
+      background: #334155;
+      border-radius: 10px;
+      height: 10px;
+    }
+    .bar-fill {
+      height: 100%;
+      background: #4ade80;
+    }
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌾 GrainPalette</h1>
+  </header>
+
+  <div class="container">
+    <!-- Title -->
+    <div class="section">
+      <h2>Classification Results</h2>
+      <p>AI analysis complete – here's what we found</p>
+    </div>
+
+    <!-- Image -->
+    <div class="section">
+      <h3>🖼️ Your Image</h3>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Jasmine_rice.jpg/320px-Jasmine_rice.jpg" alt="Rice Sample">
+    </div>
+
+    <!-- Main Prediction -->
+    <div class="section">
+      <h3>🔍 Classification Result</h3>
+      <h2 style="color: #8b5cf6; text-align: center;">Jasmine</h2>
+      <p style="text-align: center; color: #4ade80; font-size: 18px;">70.5% Confidence</p>
+      <div class="confidence-bar">
+        <div class="confidence-bar-inner" style="width: 70.5%">70.5%</div>
+      </div>
+    </div>
+
+    <!-- All Predictions -->
+    <div class="section">
+      <h3>📊 All Predictions</h3>
+      <div class="prediction-item">Jasmine - 68.3% <div class="bar"><div class="bar-fill" style="width: 68.3%"></div></div></div>
+      <div class="prediction-item">Basmati - 9.5% <div class="bar"><div class="bar-fill" style="width: 9.5%; background: #60a5fa;"></div></div></div>
+      <div class="prediction-item">Brown Rice - 9.5% <div class="bar"><div class="bar-fill" style="width: 9.5%; background: #facc15;"></div></div></div>
+      <div class="prediction-item">Arborio - 8.1% <div class="bar"><div class="bar-fill" style="width: 8.1%; background: #f97316;"></div></div></div>
+      <div class="prediction-item">Wild Rice - 4.5% <div class="bar"><div class="bar-fill" style="width: 4.5%; background: #ef4444;"></div></div></div>
+    </div>
+
+    <!-- Confidence Chart -->
+    <div class="section">
+      <h3>📈 Confidence Distribution</h3>
+      <img src="https://quickchart.io/chart?c={type:'doughnut',data:{labels:['Jasmine','Basmati','Brown Rice','Arborio','Wild Rice'],datasets:[{data:[68.3,9.5,9.5,8.1,4.5]}]}}" alt="Chart">
+      <div class="legend">
+        <div class="legend-item"><span class="dot" style="background: #22c55e;"></span> Jasmine</div>
+        <div class="legend-item"><span class="dot" style="background: #60a5fa;"></span> Basmati</div>
+        <div class="legend-item"><span class="dot" style="background: #facc15;"></span> Brown Rice</div>
+        <div class="legend-item"><span class="dot" style="background: #f97316;"></span> Arborio</div>
+        <div class="legend-item"><span class="dot" style="background: #ef4444;"></span> Wild Rice</div>
+      </div>
+    </div>
+
+    <!-- About Rice Varieties -->
+    <div class="section">
+      <h3>ℹ️ About Rice Varieties</h3>
+      <p><strong>Jasmine:</strong> Origin - Thailand. Characteristics - Long-grain, fragrant, slightly sticky. Tips - Tropical climate, high irrigation.</p>
+      <p><strong>Basmati:</strong> Origin - India/Pakistan. Characteristics - Long-grain, aromatic. Tips - Grows well in Himalayan foothills, needs well-drained soil.</p>
+      <p><strong>Brown Rice:</strong> Origin - Global. Characteristics - Whole grain with bran, chewy. Tips - Requires slightly more water, grows like white rice.</p>
+      <p><strong>Arborio:</strong> Origin - Italy. Characteristics - Short, plump, creamy when cooked. Tips - Grows in flooded fields, needs lots of water.</p>
+      <p><strong>Wild Rice:</strong> Origin - North America. Characteristics - Long, dark, nutty flavor. Tips - Grows in shallow water, cold-resistant variety.</p>
+    </div>
+  </div>
+
+</body>
+</html>
